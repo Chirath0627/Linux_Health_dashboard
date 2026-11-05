@@ -1,16 +1,13 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 from app.collectors import get_all_system_info
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
 
 
 @app.route("/")
 def home():
-    return jsonify({
-        "message": "Linux System Health Dashboard API",
-        "status": "running"
-    })
+    return render_template("index.html")
 
 
 @app.route("/api/system", methods=["GET"])

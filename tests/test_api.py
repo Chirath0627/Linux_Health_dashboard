@@ -7,11 +7,8 @@ def test_home_endpoint():
     response = client.get("/")
 
     assert response.status_code == 200
-
-    data = response.get_json()
-
-    assert data["message"] == "Linux System Health Dashboard API"
-    assert data["status"] == "running"
+    assert response.content_type == "text/html; charset=utf-8"
+    assert b"Linux System Health Dashboard" in response.data
 
 
 def test_system_endpoint():

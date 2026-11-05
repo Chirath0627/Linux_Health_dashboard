@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Linux System Health Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="dashboard-container">
+
+        <header class="dashboard-header">
+            <h1>Linux System Health Dashboard</h1>
+            <p>Monitor your system performance in real time</p>
+        </header>
+
+        <main class="dashboard-content">
+
+            <section class="system-overview">
+                <h2>System Overview</h2>
+
+                <div class="overview-cards">
+
+                    <div class="card">
+                        <h3>CPU Usage</h3>
+                        <p id="cpu-usage">Loading...</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Memory Usage</h3>
+                        <p id="memory-usage">Loading...</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Disk Usage</h3>
+                        <p id="disk-usage">Loading...</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="system-information">
+                <h2>System Information</h2>
+
+                <div class="info-card">
+                    <p>Hostname: <span id="hostname">Loading...</span></p>
+                    <p>Operating System: <span id="os">Loading...</span></p>
+                    <p>Architecture: <span id="architecture">Loading...</span></p>
+                    <p>System Uptime: <span id="uptime">Loading...</span></p>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>Linux System Health Dashboard | Built with Python & Flask</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>

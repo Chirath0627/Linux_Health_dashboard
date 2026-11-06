@@ -225,3 +225,47 @@ body {
         padding: 18px;
     }
 }
+/* System Health Alerts */
+
+.system-alerts {
+    margin-bottom: 40px;
+}
+
+.system-alerts h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #e2e8f0;
+}
+
+.alert-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.no-alerts {
+    background-color: #064e3b;
+    color: #6ee7b7;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: 1px solid #059669;
+}
+
+.alert {
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: 1px solid;
+    font-size: 14px;
+}
+
+.alert.warning {
+    background-color: #451a03;
+    color: #fcd34d;
+    border-color: #d97706;
+}
+
+.alert.critical {
+    background-color: #450a0a;
+    color: #fca5a5;
+    border-color: #dc2626;
+}

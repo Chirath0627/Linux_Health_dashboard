@@ -1,4 +1,22 @@
-// Fetch system information from Flask API
+// Update circular progress bar
+function updateProgressCircle(elementId, value) {
+    const circle = document.getElementById(elementId);
+
+    const percentage = Math.max(0, Math.min(100, value));
+
+    const degrees = percentage * 3.6;
+
+    circle.style.background = `
+        conic-gradient(
+            #38bdf8 0deg,
+            #38bdf8 ${degrees}deg,
+            #334155 ${degrees}deg,
+            #334155 360deg
+        )
+    `;
+}
+
+// Fetch system information
 async function fetchSystemInfo() {
     try {
         const response = await fetch("/api/system");
@@ -9,17 +27,23 @@ async function fetchSystemInfo() {
 
         const data = await response.json();
 
-        // CPU Information
+        // CPU Usage
         document.getElementById("cpu-usage").textContent =
             `${data.cpu.cpu_usage}%`;
 
-        // Memory Information
+        updateProgressCircle("cpu-circle", data.cpu.cpu_usage);
+
+        // Memory Usage
         document.getElementById("memory-usage").textContent =
             `${data.memory.memory_usage}%`;
 
-        // Disk Information
+        updateProgressCircle("memory-circle", data.memory.memory_usage);
+
+        // Disk Usage
         document.getElementById("disk-usage").textContent =
             `${data.disk.disk_usage}%`;
+
+        updateProgressCircle("disk-circle", data.disk.disk_usage);
 
         // System Information
         document.getElementById("hostname").textContent =
@@ -42,5 +66,5 @@ async function fetchSystemInfo() {
 // Initial data fetch
 fetchSystemInfo();
 
-// Refresh system information every 2 seconds
+// Refresh every 2 seconds
 setInterval(fetchSystemInfo, 2000);

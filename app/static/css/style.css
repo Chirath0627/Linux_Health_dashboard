@@ -125,3 +125,47 @@ body {
         width: 95%;
     }
 }
+/* Circular Progress Bars */
+
+.progress-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+
+    background: conic-gradient(
+        #38bdf8 0deg,
+        #38bdf8 0deg,
+        #334155 0deg
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    margin: 20px auto 5px;
+}
+
+/* Inner Circle */
+
+.progress-circle::before {
+    content: "";
+    position: absolute;
+
+    width: 112px;
+    height: 112px;
+
+    background-color: #1e293b;
+    border-radius: 50%;
+}
+
+/* Percentage Text */
+
+.progress-circle span {
+    position: relative;
+    z-index: 1;
+
+    font-size: 25px;
+    font-weight: bold;
+    color: #38bdf8;
+}

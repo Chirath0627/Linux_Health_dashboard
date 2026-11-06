@@ -166,3 +166,54 @@ fetchSystemInfo();
 
 // Refresh every 2 seconds
 setInterval(fetchSystemInfo, 2000);
+
+// Check system health and generate alerts
+function updateSystemAlerts(data) {
+    const alertContainer = document.getElementById("alert-container");
+
+    const resources = [
+        {
+            name: "CPU Usage",
+            value: data.cpu.cpu_usage
+        },
+        {
+            name: "Memory Usage",
+            value: data.memory.memory_usage
+        },
+        {
+            name: "Disk Usage",
+            value: data.disk.disk_usage
+        }
+    ];
+
+    const alerts = [];
+
+    resources.forEach(resource => {
+        if (resource.value >= 90) {
+            alerts.push({
+                level: "critical",
+                message: `Critical: ${resource.name} is at ${resource.value}%.`
+            });
+        } else if (resource.value >= 80) {
+            alerts.push({
+                level: "warning",
+                message: `Warning: High ${resource.name} detected (${resource.value}%).`
+            });
+        }
+    });
+
+    if (alerts.length === 0) {
+        alertContainer.innerHTML = `
+            <p class="no-alerts">
+                All systems are running normally.
+            </p>
+        `;
+        return;
+    }
+
+    alertContainer.innerHTML = alerts.map(alert => `
+        <div class="alert ${alert.level}">
+            ${alert.message}
+        </div>
+    `).join("");
+}

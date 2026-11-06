@@ -119,8 +119,8 @@ async function fetchSystemInfo() {
 
         const data = await response.json();
 
-// Update system health alerts
-updateSystemAlerts(data);
+        // Update system health alerts
+        updateSystemAlerts(data);
 
         // CPU Usage
         document.getElementById("cpu-usage").textContent =
@@ -219,4 +219,6 @@ function updateSystemAlerts(data) {
             ${alert.message}
         </div>
     `).join("");
+
 }
+updateSystemAlerts(data);

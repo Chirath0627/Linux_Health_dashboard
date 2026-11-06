@@ -50,6 +50,24 @@
                 </div>
             </section>
 
+            <section class="performance-charts">
+                <h2>Performance History</h2>
+
+                <div class="chart-container">
+
+                    <div class="chart-card">
+                        <h3>CPU Usage History</h3>
+                        <canvas id="cpu-chart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Memory Usage History</h3>
+                        <canvas id="memory-chart"></canvas>
+                    </div>
+
+                </div>
+            </section>
+
             <section class="system-information">
                 <h2>System Information</h2>
 
@@ -69,6 +87,8 @@
         </footer>
 
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 

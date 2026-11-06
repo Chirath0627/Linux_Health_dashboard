@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
     <div class="dashboard-container">
@@ -26,17 +28,23 @@
 
                     <div class="card">
                         <h3>CPU Usage</h3>
-                        <p id="cpu-usage">Loading...</p>
+                        <div class="progress-circle" id="cpu-circle">
+                            <span id="cpu-usage">Loading...</span>
+                        </div>
                     </div>
 
                     <div class="card">
                         <h3>Memory Usage</h3>
-                        <p id="memory-usage">Loading...</p>
+                        <div class="progress-circle" id="memory-circle">
+                            <span id="memory-usage">Loading...</span>
+                        </div>
                     </div>
 
                     <div class="card">
                         <h3>Disk Usage</h3>
-                        <p id="disk-usage">Loading...</p>
+                        <div class="progress-circle" id="disk-circle">
+                            <span id="disk-usage">Loading...</span>
+                        </div>
                     </div>
 
                 </div>
@@ -65,4 +73,5 @@
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 
 </body>
+
 </html>
